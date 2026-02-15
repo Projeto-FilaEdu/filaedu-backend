@@ -58,13 +58,23 @@ public class RegistroController {
 	@GetMapping("/pico-dia")
 	public ResponseEntity<PicoDiaDTO> picoDia() {
 
-	    PicoDiaDTO pico = registroService.buscarPicoDia();
+		PicoDiaDTO pico = registroService.buscarPicoDia();
 
-	    if (pico == null) {
-	        return ResponseEntity.noContent().build(); // 204
-	    }
+		if (pico == null) {
+			return ResponseEntity.noContent().build(); // 204
+		}
 
-	    return ResponseEntity.ok(pico);
+		return ResponseEntity.ok(pico);
+	}
+
+	@GetMapping("/total-hoje")
+	public ResponseEntity<Long> totalHoje() {
+		return ResponseEntity.ok(registroService.buscarTotalHoje());
+	}
+	
+	@GetMapping("/hoje-vs-ontem")
+	public ResponseEntity<Double> hojeVsOntem() {
+	    return ResponseEntity.ok(registroService.buscarHojeVsOntem());
 	}
 
 

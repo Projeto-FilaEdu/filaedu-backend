@@ -1,6 +1,6 @@
 package br.com.filaEdu.entity;
 
-import java.util.Date;
+import java.time.OffsetDateTime;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,14 +14,14 @@ public class Registro {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private Long lojaId;
-	private Date dataHora;
+	private OffsetDateTime dataHora;
 	private int totalAcumulado;
 	
 	public Registro() {
 		
 	}
 	
-	public Registro(Long id, Long lojaId, Date dataHora, int totalAcumulado) {
+	public Registro(Long id, Long lojaId, OffsetDateTime dataHora, int totalAcumulado) {
 		this.id = id;
 		this.lojaId = lojaId;
 		this.dataHora = dataHora;
@@ -40,10 +40,10 @@ public class Registro {
 	public void setLojaId(Long lojaId) {
 		this.lojaId = lojaId;
 	}
-	public Date getDataHora() {
+	public OffsetDateTime getDataHora() {
 		return dataHora;
 	}
-	public void setDataHora(Date dataHora) {
+	public void setDataHora(OffsetDateTime dataHora) {
 		this.dataHora = dataHora;
 	}
 	public int getTotalAcumulado() {
